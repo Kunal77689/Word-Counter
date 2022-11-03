@@ -17,7 +17,9 @@ export default function Textform(props) {
     <div>
       <div className="container">
         <div className="m-3">
-          <h1>{props.heading}</h1>
+          <h1 className={`text-${props.mode === "light" ? "dark" : "white"}`}>
+            {props.heading}
+          </h1>
           <textarea
             type="email"
             className="form-control"
@@ -51,12 +53,20 @@ export default function Textform(props) {
         </div>
       </div>
       <div className="container">
-        <div className="m-3">
-          <h2>Your text summary</h2>
+        <div
+          className={`m-3 text-${props.mode === "light" ? "dark" : "white"}`}
+        >
+          <h2 className={`text-${props.mode === "light" ? "dark" : "white"}`}>
+            Summary
+          </h2>
           Characters: {text.length + " "}
           Words: {text.split(" ").length}
-          <h2>Preview</h2>
-          <p>{text}</p>
+          <h2 className={`text-${props.mode === "light" ? "dark" : "white"}`}>
+            Preview
+          </h2>
+          <p className={`text-${props.mode === "light" ? "dark" : "white"}`}>
+            {text}
+          </p>
         </div>
       </div>
     </div>

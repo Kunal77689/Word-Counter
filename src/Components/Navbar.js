@@ -3,9 +3,14 @@ import React from "react";
 export default function Navbar(props) {
   return (
     <div>
-      <nav className="navbar navbar-expand-lg bg-dark">
+      <nav className={`navbar navbar-expand-lg bg-${props.mode} `}>
         <div className="container-fluid ">
-          <a className="navbar-brand text-white " href="/">
+          <a
+            className={`navbar-brand text-${
+              props.mode === "light" ? "dark" : "light"
+            }`}
+            href="/"
+          >
             {props.title}
           </a>
           <button
@@ -19,11 +24,17 @@ export default function Navbar(props) {
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className="collapse navbar-collapse"
+            id="navbarSupportedContent"
+            style={{ color: "light" }}
+          >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
+              <li className="nav-item ">
                 <a
-                  className="nav-link active text-white "
+                  className={`nav-link active text-${
+                    props.mode === "light" ? "dark" : "light"
+                  }`}
                   aria-current="page"
                   href="/"
                 >
@@ -31,13 +42,20 @@ export default function Navbar(props) {
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link text-white " href="/">
+                <a
+                  className={`nav-link text-${
+                    props.mode === "light" ? "dark" : "light"
+                  }`}
+                  href="/"
+                >
                   Link
                 </a>
               </li>
               <li className="nav-item dropdown">
                 <a
-                  className="nav-link dropdown-toggle text-white "
+                  className={`nav-link dropdown-toggle text-${
+                    props.mode === "light" ? "dark" : "light"
+                  }`}
                   href="/"
                   role="button"
                   data-bs-toggle="dropdown"
@@ -45,7 +63,7 @@ export default function Navbar(props) {
                 >
                   Dropdown
                 </a>
-                <ul className="dropdown-menu bg-dark">
+                <ul className="dropdown-menu">
                   <li>
                     <a className="dropdown-item" href="/">
                       Action
@@ -67,17 +85,23 @@ export default function Navbar(props) {
                 </ul>
               </li>
             </ul>
-            <form className="d-flex" role="search">
+            <div className="form-check form-switch">
               <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
+                className="form-check-input"
+                type="checkbox"
+                role="switch"
+                id="flexSwitchCheckDefault"
+                onClick={props.setColor}
               />
-              <button className="btn btn-primary" type="submit">
-                Search
-              </button>
-            </form>
+              <label
+                className={`form-check-label text-${
+                  props.mode === "light" ? "dark" : "light"
+                }`}
+                htmlFor="flexSwitchCheckDefault"
+              >
+                Enable DarkMode
+              </label>
+            </div>
           </div>
         </div>
       </nav>
