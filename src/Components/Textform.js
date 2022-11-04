@@ -17,12 +17,13 @@ export default function Textform(props) {
     <div>
       <div className="container">
         <div className="m-3">
-          <h1 className={`text-${props.mode === "light" ? "dark" : "white"}`}>
+          <h1 className={`text-${props.mode === "rgb(32,32,32)"}`}>
             {props.heading}
           </h1>
           <textarea
             type="email"
             className="form-control"
+            name="textBox"
             value={text}
             rows="8"
             onChange={handleChange}

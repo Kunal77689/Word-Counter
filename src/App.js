@@ -7,7 +7,6 @@ function App() {
   const [mode, setMode] = useState("light");
   const setColor = () => {
     if (mode === "light") {
-      console.log("first");
       setMode("dark");
       document.body.style.backgroundColor = "#4c5863";
     } else {
@@ -17,7 +16,7 @@ function App() {
   };
   return (
     <div>
-      <Navbar title="TextUtils" mode={mode} setColor={setColor} />
+      <Navbar title="WordAnalyzer" mode={mode} setColor={setColor} />
       <Textform
         heading="Enter The Text To Analyze"
         mode={mode}
