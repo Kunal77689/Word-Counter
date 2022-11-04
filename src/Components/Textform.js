@@ -35,12 +35,18 @@ export default function Textform(props) {
               type="submit"
               className="btn btn-primary"
               onClick={handleClick}
+              disabled={text.length === 0}
             >
               Convert to upper
             </button>
           </div>
           <div className="mb-2">
-            <button type="submit" className="btn btn-primary" onClick={clear}>
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={clear}
+              disabled={text.length === 0}
+            >
               Clear
             </button>
           </div>
@@ -48,6 +54,7 @@ export default function Textform(props) {
             type="submit"
             className="btn btn-primary"
             onClick={convertLower}
+            disabled={text.length === 0}
           >
             Convert to lower
           </button>
@@ -61,7 +68,12 @@ export default function Textform(props) {
             Summary
           </h2>
           Characters: {text.length + " "}
-          Words: {text.split(" ").length}
+          Words:{" "}
+          {
+            text.split(" ").filter((element) => {
+              return element.length !== 0;
+            }).length
+          }
           <h2 className={`text-${props.mode === "light" ? "dark" : "white"}`}>
             Preview
           </h2>
